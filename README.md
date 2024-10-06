@@ -44,7 +44,6 @@ Steps
 Clone this repository:
 bash
 Copy code
-git clone https://github.com/YourUsername/Bio-Tiger.git
 Navigate into the project directory:
 bash
 Copy code
