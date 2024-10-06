@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../image/plants.png" type="image/x-icon" attribution="https://icons8.com/icon/q2Ni6jgYWAUK/sprout">
+    <script src="../modules/jquery.min.js"></script>
+    <link rel="stylesheet" href="../index.css">
+    <script src="../modules/tailwind.css"></script>
+    <script src="../modules/bootstrap.min.js"></script>
+    <link href="../modules/bootstrap.min.css" rel="stylesheet">
+    <title>Bio-Tiger</title>
+</head>
+<body>
+  <nav class="bg-gray-800">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <!-- Mobile menu button-->
+          <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="absolute -inset-0.5"></span>
+            <span class="sr-only">Open main menu</span>
+            <!--Icon when menu is closed. Menu open: "hidden", Menu closed: "block"-->
+            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <!--Icon when menu is open. Menu open: "block", Menu closed: "hidden"-->
+            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex flex-shrink-0 items-center">
+            <img class="h-8 w-auto" src="../image/plants.png" alt="Logo" attribution="https://icons8.com/icon/q2Ni6jgYWAUK/sprout">
+            <span class="text-white text-lg font-bold font-italic pl-4">Flora-Spots</span>
+          </div>
+          <div class="hidden sm:ml-6 sm:block">
+            <div class="flex space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a href="../index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Map</a>
+              <a href="./introduction.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Introduction</a>
+              <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Analysis</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="sm:hidden" id="mobile-menu">
+      <div class="space-y-1 px-2 pb-3 pt-2">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a href="../index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Map</a>
+        <a href="./introduction.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Introduction</a>
+        <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Analysis</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="custom-container mx-auto">
+      <h1 class="display-3 mt-4">Analysis</h1>
+
+      <h1 class="display-6 mt-4 mb-2">Data pre-processing</h1>
+      <div class="clearfix mt-2 ml-2 mr-2">
+        <p class="text-justify mb-1">We start by downloading the hyperspectral map from NASA's EMIT mission official website and then perform orthorectification. Afterward, we normalize the data using various indices, such as NDVI, NDWI and NDMI.</p>
+        <h1 class="custom-font-size mb-1"><li>NDVI</li></h1>
+        <div class="pl-5">
+          <img src="../image/NDVI.jpg" class="col-md-6 float-md-center mb-3 ms-md-3 rounded" alt="EMIT Introduction" title="attribution: NASA">
+      
+          <p class="text-justify font-bold">
+            Normalized Difference Vegetation Index (NDVI):
+          </p>
+          <p class="text-justify">
+            NDVI is closely linked to the presence of vegetation. Elevated NDVI values indicate regions that exhibit greater reflection in the near-infrared spectrum. Increased near-infrared reflectance is indicative of more abundant plant growth.
+          </p>
+          <p class="text-justify">
+            We use NDVI <span class="font-italic">((842nm-665nm)/(842nm+665nm)) < 0.35</span> to remove low vegetation areas.
+          </p>
+        </div>
+
+        <h1 class="custom-font-size mb-1 mt-3"><li>NDWI</li></h1>
+        <div class="pl-5">
+          <img src="../image/NDWI.jpg" class="col-md-6 float-md-center mb-3 ms-md-3 rounded" alt="EMIT Introduction" title="attribution: NASA">
+          <p class="text-justify font-bold">
+            Normalized Difference Water Index (NDWI):
+          </p>
+          <p class="text-justify">
+            NDWI utilizes the green and near-infrared bands of remote sensing imagery and is particularly responsive to the presence of water areas.
+          </p>
+          <p class="text-justify">
+            We use NDWI <span class="font-italic">((560nm -842nm)/(560nm +842nm)) > 0 </span> to remove water areas.
+          </p>
+        </div>
+
+        <h1 class="custom-font-size mb-1 mt-3"><li>NDMI</li></h1>
+        <div class="pl-5">
+          <img src="../image/NDMI.jpg" class="col-md-6 float-md-center mb-3 ms-md-3 rounded" alt="EMIT Introduction" title="attribution: NASA">
+          <p class="text-justify font-bold">
+            Normalized Difference Moisture Index (NDMI):
+          </p>
+          <p class="text-justify">
+            NDMI is calculated from NIR and SWIR values. It is sensitive to water content in  vegetation.
+          </p>
+          <p class="text-justify">
+            We use NDMI <span class="font-italic">((842nm-1610nm)/(842nm+1610nm)) > 0.2 </span> to remove farm because natural vegetation is drier than agricultural land in the Cape of South Africa.
+          </p>
+        </div>
+      </div>
+
+      <h1 class="display-6 mt-4 mb-2">Method</h1>
+      <div class="clearfix mt-2 ml-2 mr-2">
+        <p class="text-justify">
+          In our hypothesis, where regions with high plant biodiversity represent a relatively small proportion of the total considered areas. Due to numerous rare species concentrated in the area, it is expected that the vegetation in these regions would exhibit the greatest difference from that of other areas.  These differences will reflect on the spectrum.
+        </p>
+        <p class="text-justify pt-2">
+          To find the plant biodiversity, we calculate Z-score for specific wavelength intervals in the spectral data of each pixel. These Z-score data could help identify grid points with the most significant deviations in spectrum.
+        </p>
+        <p class="text-justify pt-2">
+          Subsequently, creating maps that colored with Z-score will facilitate the identification of areas with the plant biodiversity hotspot.
+        </p>
+      </div>
+
+      <h1 class="display-6 mt-4 mb-2">Result</h1>
+      <div class="clearfix mt-2 ml-2 mr-2">
+        <img src="../image/band1_381_2492nm.png" class="col-md-5 float-md-start mb-3 ms-md-3 rounded" alt="band1">
+        <img src="../image/band2_700_1400nm.png" class="col-md-5 float-md-end mb-3 ms-md-3 rounded" alt="band2">
+      </div>
+      <p class="text-justify">
+        This is our Z-score analysis result, we successfully distinguish water and farm from vegetation, but we had a hard time in buildings and sand distinguishing.
+So, in the last step we manully pick the hot spot accroding to Z-score value and Satellite imagery.
+Hotspots search results are presented as interactive map.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
