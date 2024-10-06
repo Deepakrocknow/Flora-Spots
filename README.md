@@ -1,3 +1,5 @@
+https://flora-spots.vercel.app/
+
 🌱 Bio-Tiger
 Overview
 Bio-Tiger is a web-based platform designed to analyze plant biodiversity in the Cape Floristic Region of South Africa, leveraging hyperspectral data from NASA's EMIT mission. The platform provides a map-based interface and detailed analysis tools to help discover biodiversity hotspots using spectral diversity indicators like NDVI, NDWI, and NDMI.
